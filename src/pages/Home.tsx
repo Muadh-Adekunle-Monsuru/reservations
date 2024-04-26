@@ -1,11 +1,16 @@
 import { Link } from 'react-router-dom';
+import { motion } from 'framer-motion';
 export default function Home() {
 	return (
-		<div className='text-white'>
+		<div className='text-white md:px-32'>
 			<div>
-				<section className='w-full text-white py-10 md:py-32'>
+				<section className='w-full text-white py-10 md:py-20'>
 					<div className='px-4 md:px-6 grid md:grid-cols-2 gap-10 items-center'>
-						<div>
+						<motion.div
+							initial={{ opacity: 0 }}
+							animate={{ opacity: 1 }}
+							transition={{ delay: 0.1, duration: 2.3, type: 'just' }}
+						>
 							<h1 className='text-2xl md:text-6xl font-bold mb-4'>
 								The Shawshank Redemption
 							</h1>
@@ -14,8 +19,12 @@ export default function Home() {
 								Two imprisoned men bond over a number of years, finding solace
 								and eventual redemption through acts of common decency.
 							</p>
-						</div>
-						<div className='items-center justify-center flex'>
+						</motion.div>
+						<motion.div
+							animate={{ scale: 1.1 }}
+							transition={{ type: 'tween' }}
+							className='items-center justify-center flex'
+						>
 							<img
 								alt='The Shawshank Redemption'
 								className='rounded-lg shadow-lg'
@@ -27,10 +36,10 @@ export default function Home() {
 								}}
 								width={300}
 							/>
-						</div>
+						</motion.div>
 					</div>
 				</section>
-				<section className='w-full py-20 md:py-32'>
+				<section className='w-full py-20 md:py-20'>
 					<div className='mx-auto px-4 md:px-6'>
 						<h2 className='text-3xl md:text-4xl font-bold mb-8'>Plot</h2>
 						<p className='text-gray-600 dark:text-gray-400 text-lg mb-12'>
@@ -44,7 +53,11 @@ export default function Home() {
 							Reviews
 						</h2>
 						<div className='grid grid-cols-1 md:grid-cols-2 gap-8'>
-							<blockquote className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'>
+							<motion.blockquote
+								className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'
+								whileInView={{ x: 10 }}
+								transition={{ duration: 0.5, type: 'tween' }}
+							>
 								<p className='text-gray-600 dark:text-gray-400 italic mb-4'>
 									"A powerful film that explores the human spirit and the power
 									of hope."
@@ -52,8 +65,12 @@ export default function Home() {
 								<cite className='text-gray-600 dark:text-gray-400 text-sm'>
 									- Roger Ebert, Chicago Sun-Times
 								</cite>
-							</blockquote>
-							<blockquote className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'>
+							</motion.blockquote>
+							<motion.blockquote
+								className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'
+								whileInView={{ x: -10 }}
+								transition={{ duration: 0.5, type: 'tween' }}
+							>
 								<p className='text-gray-600 dark:text-gray-400 italic mb-4'>
 									"A masterpiece of storytelling, with superb performances and a
 									timeless message."
@@ -61,8 +78,12 @@ export default function Home() {
 								<cite className='text-gray-600 dark:text-gray-400 text-sm'>
 									- Peter Travers, Rolling Stone
 								</cite>
-							</blockquote>
-							<blockquote className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'>
+							</motion.blockquote>
+							<motion.blockquote
+								className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'
+								whileInView={{ x: 10 }}
+								transition={{ duration: 0.5, type: 'tween' }}
+							>
 								<p className='text-gray-600 dark:text-gray-400 italic mb-4'>
 									"A film that reminds us of the resilience of the human soul
 									and the power of friendship."
@@ -70,8 +91,12 @@ export default function Home() {
 								<cite className='text-gray-600 dark:text-gray-400 text-sm'>
 									- Janet Maslin, The New York Times
 								</cite>
-							</blockquote>
-							<blockquote className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'>
+							</motion.blockquote>
+							<motion.blockquote
+								className='p-6 bg-gray-100 dark:bg-gray-800 rounded-lg'
+								whileInView={{ x: -10 }}
+								transition={{ duration: 0.5, type: 'tween' }}
+							>
 								<p className='text-gray-600 dark:text-gray-400 italic mb-4'>
 									"A timeless classic that deserves its place among the greatest
 									films of all time."
@@ -79,14 +104,14 @@ export default function Home() {
 								<cite className='text-gray-600 dark:text-gray-400 text-sm'>
 									- James Berardinelli, ReelViews
 								</cite>
-							</blockquote>
+							</motion.blockquote>
 						</div>
 					</div>
 				</section>
 			</div>
-			<div className='w-full flex justify-center items-center p-10'>
+			<div className='w-full flex justify-center items-center p-10 shadow-xl'>
 				<Link to={`booking`}>
-					<div className='py-5 px-10 border bg-slate-500 w-40 rounded-lg'>
+					<div className='py-5 px-10 border bg-slate-500 w-40 rounded-lg hover:scale-105 transtion ease-in-out duration-200'>
 						Get Ticket
 					</div>
 				</Link>
