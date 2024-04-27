@@ -1,6 +1,6 @@
 import React from 'react';
 import Header from './components/Header';
-import { Outlet, useLocation, useOutlet } from 'react-router-dom';
+import { useLocation, useOutlet } from 'react-router-dom';
 import { AnimatePresence } from 'framer-motion';
 export default function App() {
 	const location = useLocation();
