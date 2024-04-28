@@ -87,7 +87,8 @@ export default function Booking() {
 			.post('http://localhost:3001/test', { reserved })
 			.then(() => callApi())
 			.finally(() => {
-				navigate('/success');
+				let seatList = selectedCouch.join(', ');
+				navigate('/success', { state: { seats: `${seatList}` } });
 			});
 	};
 	return (
