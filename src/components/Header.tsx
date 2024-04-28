@@ -1,13 +1,6 @@
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 
-const animateSvg = {
-	initial: { opacity: 0 },
-	final: {
-		opacity: 1,
-		transition: { duration: 2.2, ease: 'easeInOut' },
-	},
-};
 const drawSvg = {
 	initial: { pathLength: 0 },
 	final: {
