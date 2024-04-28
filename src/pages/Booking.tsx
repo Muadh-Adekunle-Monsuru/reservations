@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'framer-motion';
 import Couch from '../components/Couch';
-import { callApi } from '../components/api';
 import axios from 'axios';
 import { AnimatedLayout } from './AnimatedLayout';
 export default function Booking() {
@@ -13,7 +12,7 @@ export default function Booking() {
 		const callApi = async function () {
 			try {
 				axios
-					.get('http://localhost:3001/')
+					.get('https://reservations-1mjo.onrender.com/')
 					.then((response) => {
 						response.data.map((val) => {
 							setTaken((prevArr) => [...prevArr, Number(val.seatID)]);
@@ -84,8 +83,8 @@ export default function Booking() {
 		let reserved = JSON.stringify(selectedCouch);
 		// console.log(stringy);
 		axios
-			.post('http://localhost:3001/test', { reserved })
-			.then(() => callApi())
+			.post('https://reservations-1mjo.onrender.com/test', { reserved })
+			.then()
 			.finally(() => {
 				let seatList = selectedCouch.join(', ');
 				navigate('/success', { state: { seats: `${seatList}` } });

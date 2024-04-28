@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { AnimatedLayout } from './AnimatedLayout';
 import Lottie from 'lottie-react';
 import hightlight from '../assets/highligh.json';
@@ -7,9 +7,16 @@ import { useLocation } from 'react-router-dom';
 
 export default function Success() {
 	const [showModal, setShowModal] = useState(false);
+	const [seats, setSeats] = useState('');
 	const location = useLocation();
-	const seats = location.state.seats;
-
+	useEffect(() => {
+		try {
+			const seat = location.state.seats;
+			setSeats(seat);
+		} catch (e) {
+			console.log('Error finding seats', e);
+		}
+	}, []);
 	return (
 		<AnimatedLayout>
 			<div className='min-h-screen overflow-hidden'>
