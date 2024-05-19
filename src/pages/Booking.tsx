@@ -12,7 +12,7 @@ export default function Booking() {
 		const callApi = async function () {
 			try {
 				axios
-					.get('https://reservations-1mjo.onrender.com/')
+					.get('https://reservations-backend.vercel.app/')
 					.then((response) => {
 						response.data.map((val) => {
 							setTaken((prevArr) => [...prevArr, Number(val.seatID)]);
@@ -83,7 +83,7 @@ export default function Booking() {
 		let reserved = JSON.stringify(selectedCouch);
 		// console.log(stringy);
 		axios
-			.post('https://reservations-1mjo.onrender.com/test', { reserved })
+			.post('https://reservations-backend.vercel.app/test', { reserved })
 			.then()
 			.finally(() => {
 				let seatList = selectedCouch.join(', ');
